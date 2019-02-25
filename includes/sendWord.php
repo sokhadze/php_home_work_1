@@ -21,8 +21,8 @@
     <div class="col-md-4">
         <form action="" method="post">
             <div class="form-group">
-                <input name="word_eng" class="form-control"><br>
-                <input name="word_geo" class="form-control">
+                <input name="word_eng" placeholder="ინგლისურად" class="form-control"><br>
+                <input name="word_geo" placeholder="ქართულად" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">დამატება</button>
         </form>
