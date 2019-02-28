@@ -47,7 +47,7 @@
                     <td><?php echo $data[$i]['word_geo'];?></td>
                     <td>
                         <a href="?delete_id=<?php echo $data[$i]['id'];?>"><button class="btn btn-danger">წაშლა</button></a>
-                        <button type="button" data-toggle="modal" data-target="#exampleModal" id="show_modal" class="btn btn-warning">რედაქტირება</button>
+                        <button type="button"  value="<?php echo $data[$i]['id']; ?>" data-toggle="modal" data-target="#exampleModal" id="show_modal" class="btn btn-warning">რედაქტირება</button>
 <!--                        <a href="?edit=--><?php //echo $data[$i]['id'];?><!--&word_eng=--><?php //echo $data[$i]['word_eng']?><!--&word_geo=--><?php //echo $data[$i]['word_geo']?><!--"><button type="button" data-toggle="modal" data-target="#exampleModal" id="show_modal" class="btn btn-warning">რედაქტირება</button></a>-->
                     </td>
                 </tr>
@@ -63,20 +63,40 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">სიტყვის რედაქტირება</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form action="" method="get">
-                    <input type="text" value="<?php echo $_GET['word_geo']?>" class="form-control"><br>
-                    <input type="text" class="form-control">
+                    <input type="text" id="eng" class="form-control"><br>
+                    <input type="text" id="geo" class="form-control">
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="?delete_id=<?php echo $data[$i]['id'];?>"><button class="btn btn-success">Save changes</button></a>
+                <a><button class="btn btn-success">შენახვა</button></a>
             </div>
         </div>
     </div>
-</div>55
+</div>
+
+<script>
+    // $(document).on("click", ".show_modal", function () {
+    //     var myBookId = $(this).data('id');
+    //     $(".modal-body #bookId").val( myBookId );
+    //     // As pointed out in comments,
+    //     // it is superfluous to have to manually call the modal.
+    //     // $('#addBookDialog').modal('show');
+    // });
+
+    window.onload = function(){
+
+        function saveWords(id, eng, geo) {
+            return console.log(id,eng,geo);
+            document.getElementById("eng").value = eng;
+            document.getElementById("geo").value = geo;
+
+        }
+    }
+</script>
