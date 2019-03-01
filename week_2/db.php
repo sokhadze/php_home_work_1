@@ -38,4 +38,11 @@ class db
         $data = $stmp->fetchAll();
         return $data;
     }
+
+    public function deleteQuestion($id) {
+        $query = "Delete From questions WHERE id = $id";
+        $stmp = $this->conn->prepare($query);
+        $stmp->execute();
+        header("location: /week_2/");
+    }
 }

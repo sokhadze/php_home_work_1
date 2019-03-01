@@ -18,8 +18,9 @@
         $db->addQuestion($question,$answer);
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        echo $_GET["delete"];
+    if (!empty($_GET["delete"])) {
+        $id = (int)$_GET["delete"];
+        $db->deleteQuestion($id);
     }
 
 
@@ -39,14 +40,14 @@
         <div class="container">
             <form method="post" class="form">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-5">
                         <input type="text" name="question" class="form-control">
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-5">
                         <input type="text" name="answer" class="form-control">
                     </div>
-                    <div class="col-lg-4">
-                        <button type="submit" class="btn btn-primary">damateba</button>
+                    <div class="col-lg-2">
+                        <button type="submit" style="width: 100%" class="btn btn-success">დამატება</button>
                     </div>
                 </div>
             </form>
